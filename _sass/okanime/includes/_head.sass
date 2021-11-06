@@ -1,0 +1,22 @@
+@use "../abs"
+@use "../logic"
+*
+    box-sizing: border-box
+    padding: 0
+    margin: 0
+
+:root
+    --side-width: 22%
+    --spacer-width: 1.5%
+    --content-width: 78%
+
+body
+    font-family: abs.$font_type
+    background-image: url(../../images/okanime/Background.jpg)
+    background-position: top
+    background-repeat: no-repeat
+    direction: logic.$direction
+    background-color: #d9d9d9
+
+.spacer
+    width: var(--spacer-width) // logic.$spacer_width

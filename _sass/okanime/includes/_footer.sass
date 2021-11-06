@@ -1,0 +1,75 @@
+@use "../abs"
+@use "../logic"
+.footer
+    .top
+        min-height: 40px
+    .bottom
+        min-height: 300px
+        background-color: abs.$light_color1
+        border: 1px solid abs.$light_color3
+        margin: 20px 0
+        border-radius: 3px
+        header
+            min-height: 50px
+            border-bottom: 1px solid abs.$light_color3
+            font-size: 13px
+            ul
+                min-height: inherit
+                list-style: none
+                display: flex
+                align-items: center
+                flex-wrap: wrap
+                li
+                    min-height: inherit
+                    display: flex
+                    align-items: center
+                    padding: 0 10px
+                    &:first-of-type
+                        border-#{logic.$reverse_site_direction}: 1px solid abs.$light_color3
+                        border-bottom: 1px solid abs.$light_color3
+                        font-size: 18px
+                    a
+                        text-decoration: none
+                        color: abs.$dark_color1
+
+        .body
+            display: flex
+            flex-wrap: wrap
+            min-height: inherit
+            .tab
+                min-height: inherit
+                width: 25%
+                padding: 30px 20px 0
+                border-#{logic.$reverse_site_direction}: 1px solid abs.$light_color3
+                &:last-of-type
+                    border-#{logic.$reverse_site_direction}: none
+                .tab-head
+                    color: no
+                    i
+                        margin-#{logic.$reverse_site_direction}: 15px 
+                        font-size: 20px
+                        float: logic.$site_direction
+                        color: abs.$light_color4
+                        margin-top: 1px
+                    h3
+                        word-break: break-word
+                        color: abs.$dark_color2
+
+                .tab-content
+                    padding: 20px 0
+                    color: abs.$dark_color2
+                    .about-p
+                        line-height: 1.8
+                        font-size: 13px
+                    
+                    .short-links
+                        list-style: none
+                        display: flex
+                        flex-direction: column
+                        li 
+                            padding: 10px 0
+                            a
+                                text-decoration: none
+                                color: abs.$dark_color2
+                                font-size: 13px
+                        

@@ -1,0 +1,35 @@
+@use "../abs"
+@use "vars"
+
+@mixin header_tab_active()
+    background-color: abs.$light_color1
+    color: abs.$red_color
+
+@mixin header_tab_hoverd()
+    background-color: abs.$dark_color3
+    color: abs.$light_color1
+
+@mixin make_arrow($dire: right, $revers_dire: left)
+    .arrow
+        min-height: inherit
+        position: relative
+        // display: inline-block
+        // float: $dire
+        span
+            width: 10px
+            min-height: inherit
+            background-color: #cbcbcb
+            display: inline-block
+            @if $dire == right
+                clip-path: polygon(100% 0, 0 50%, 100% 100%)
+            @else
+                clip-path: polygon(0 0, 100% 50%, 0 100%)
+            position: absolute
+            #{$revers_dire}: -11px
+            top: 0
+            transition: vars.$transition
+        span:last-of-type
+            background-color: abs.$light_color1
+            #{$revers_dire}: -10px
+            transform-origin: center center
+            transform: scale(1.1)

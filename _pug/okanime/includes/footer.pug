@@ -1,0 +1,46 @@
+mixin tab-head(title="title", icon="far fa-caret-square-right")
+    .tab-head 
+        i(class=icon)
+        h3= title
+.footer
+    .container
+        .top
+            include breadcrumb
+        .bottom 
+            header 
+                ul
+                    - 
+                        var menu = [
+                            '<i class="fas fa-arrow-circle-up"></i>',
+                            'الرئيسية', 
+                            'إتصل بنا', 
+                            'مساعدة', 
+                            'الشروط والقوانين',
+                            ]
+                    each item in menu
+                        li: a(href="#")
+                            != item
+            .body 
+                .tab 
+                    +tab-head("About Us")
+                    .tab-content
+                        p.about-p= 'موقع انمي جديد في مرحلته التجريبية لمشاهدة الانمي مباشرة او تحميله مجانا =) , كما يمكنكم الدردشة والتعارف مع باقي الاعضاء فهو فضاء لكل محبي الانمي :) وهناك الكثير من المزايا الأخرى التي سنضيفها ان شاء الله'
+
+                .tab 
+                    +tab-head("الإنتقال السريع", "fas fa-info-circle")
+                    .tab-content
+                        ul.short-links
+                            li: a(href="#")= 'الرئيسية'
+                            li: a(href="#")= 'مساعدة'
+                            li: a(href="#")= 'اتصل بنا'
+                            li: a(href="#")= 'فتح قائمة الانتقال السريع'
+
+                .tab 
+                    +tab-head("تابعنا على فيسبوك", "fab fa-facebook-square")
+                    .tab-content
+                        p(style="text-align: center") Nothing Here
+
+                .tab 
+                    +tab-head("OKanime")
+                    .tab-content
+                        p.about-p= 'موقع انمي جديد في مرحلته التجريبية لمشاهدة الانمي مباشرة او تحميله مجانا =) , كما يمكنكم الدردشة والتعارف مع باقي الاعضاء فهو فضاء لكل محبي الانمي :) وهناك الكثير من المزايا الأخرى التي سنضيفها ان شاء الله'

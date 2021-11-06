@@ -1,0 +1,37 @@
+.header 
+    .container
+        .top
+            .logo
+                img(src="images/okanime/Logo.png", alt="OKANIME")
+            .spacer
+            .menues 
+                .head
+                    - var a_class
+                    each obj, index in top_header_menu
+                        - if(index == 1)
+                            - a_class = "tab active"
+                        - else 
+                            - a_class = "tab"
+                        a(href="#", class=a_class)
+                            .content
+                                - if(obj.hasText === 'true')
+                                    span #{obj.text}
+                                - if(obj.hasIcon === 'true')
+                                    i(class=obj.icon)
+                .nav
+                    - var nav_menu = ['البحث في المنتدى', 'المواضيع الرائجة', 'المشاركات الأخيرة']
+                    .list 
+                        each item in nav_menu 
+                            a(href="#", class="link") #{item}   
+
+        .bottom
+            .search_bar 
+                .items 
+                    button(type="submit")
+                        i(class="fas fa-search")
+                    input(type="text", name="search")
+            .spacer 
+            .site_tree
+                include breadcrumb 
+
+

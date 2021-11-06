@@ -1,0 +1,20 @@
+@use "sass:map";
+$sm: 576px;  $ctr_sm: 540px;
+$md: 768px;  $ctr_md: 720px;
+$lg: 992px;  $ctr_lg: 992px;
+$xl: 1200px; $ctr_xl: 1140px;
+
+$screen_sizes: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+);
+
+$container_sizes: (
+    #{map.get($screen_sizes, sm)}: 576px,
+    #{map.get($screen_sizes, md)}: 720px,
+    #{map.get($screen_sizes, lg)}: 992px,
+    #{map.get($screen_sizes, xl)}: 1170px
+);
+

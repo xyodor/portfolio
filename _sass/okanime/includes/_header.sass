@@ -1,0 +1,207 @@
+@use "../abs"
+@use "../logic"
+@use "../abs/extends"
+
+$direction: logic.$site_direction
+.header
+    margin-top: logic.$vertical_margin
+    .top
+        display: flex
+        .menues
+            width: var(--content-width) // logic.$content_width
+            .head
+                overflow: auto
+                background-color: abs.$dark_color1
+                border-top-left-radius: 6px
+                border-top-right-radius: 6px
+                border-top: 1px solid abs.$light_color1
+                min-height: 50px
+                // height: 50%
+                a
+                    text-decoration: none
+                .tab 
+                    display: flex
+                    min-height: inherit
+                    padding: 0em 1em
+                    justify-content: center
+                    align-items: center
+                    float: logic.$site_direction
+                    color: abs.$light_color1
+                    cursor: pointer
+                    transition: logic.$transition
+                    .content
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        color: inherit
+                        font-weight: bold
+                        font-size: 0.95em
+                        @if logic.$direction == rtl
+                            flex-flow: row-reverse
+                        
+                        i
+                            line-height: 1.15
+                    &:hover
+                        @include logic.header_tab_hoverd()
+                    
+                .active
+                    @include logic.header_tab_active()
+                    &:hover
+                        @include logic.header_tab_active()
+
+                .tab:last-of-type
+                    float: logic.$reverse_site_direction
+                    span
+                        font-size: 13px
+                    i
+                        margin-left: 5px
+                        margin-top: 2px
+            .nav
+                min-height: 40px
+                // height: 50%
+                background-color: abs.$light_color1
+                border-bottom-left-radius: 6px
+                border-bottom-right-radius: 6px
+                box-shadow: logic.$shadow1
+                .list
+                    display: flex
+                    align-items: center
+                    color: abs.$dark_color1
+                    font-size: 13px
+                    font-weight: bold
+                    @if logic.$direction == rtl
+                        justify-content: flex-start
+                    @else if logic.$direction == ltr
+                        justify-content: flex-start
+                    .link
+                        min-height: 40px
+                        text-decoration: none
+                        color: inherit
+                        margin-#{logic.$site_direction}: 1.4em
+                        display: flex
+                        align-items: center
+                    
+                    // .link + .link
+                    //     margin-left: 1em 
+
+        .logo
+            display: flex
+            flex-grow: 1
+            justify-content: center
+            align-items: center
+            width: var(--side-width) // logic.$side_width
+    .bottom
+        margin: logic.$vertical_margin 0
+        min-height: 40px
+        display: flex
+
+        .search_bar
+            flex-grow: 1
+            min-height: inherit
+            width: var(--side-width) // logic.$side_width
+            .items
+                min-height: inherit
+                display: flex
+                box-shadow: logic.$shadow3
+                button
+                    width: 15%
+                    cursor: pointer
+                    background-color: abs.$red_color
+                    color: abs.$light_color2
+                    border-top-#{logic.$reverse_site_direction}-radius: 3px
+                    border-bottom-#{logic.$reverse_site_direction}-radius: 3px
+                    i
+                input
+                    width: 85%
+                    padding: 3px
+                
+                button, input
+                    outline: none
+                    border: none
+                    &:hover
+                        outline: none
+                        border: none
+        
+        .site_tree
+            width: var(--content-width) // logic.$content_width
+            min-height: inherit
+
+.breadcrumb-items
+    display: flex
+    align-items: center
+    min-height: inherit
+    
+    .bars_btn
+        float: logic.$site_direction
+        min-height: inherit
+        box-shadow: logic.$shadow3
+        
+        button
+            cursor: pointer
+            min-height: inherit
+            padding: 0 0.7em
+            font-size: 13px
+            border: 1px solid abs.$light_color3
+            background-color: abs.$light_color1
+            i
+    .arrow_menu
+        float: logic.$site_direction
+        margin-#{logic.$site_direction}: 0.4em
+
+        flex-grow: 1
+        min-height: inherit
+        .breadcrumb
+            min-height: inherit
+            width: 100%
+            background-color: abs.$light_color1
+            border-radius: 5px
+            overflow: hidden
+            border: 1px solid abs.$light_color3
+            box-shadow: 0px 2px 1px 0px #9d9d9d
+            .hol
+                float: logic.$site_direction
+                min-height: inherit
+
+                a.item
+                    min-height: inherit
+                    display: block
+                    float: logic.$site_direction
+                    cursor: pointer
+                    @extend %reset_links
+                    .block
+                        display: inline-flex
+                        align-items: center
+                        min-height: inherit
+                        float: logic.$site_direction
+                        background-color: abs.$light_color1
+                        transition: logic.$transition
+                        span, i
+                            // padding: 0 17px 0 10px
+                            padding-#{logic.$site_direction}: 17px
+                            padding-#{logic.$reverse_site_direction}: 10px
+                        
+                    @include logic.make_arrow(logic.$site_direction, logic.$reverse_site_direction)
+
+                    &:hover
+                        .block, .arrow span:last-of-type
+                            background-color: abs.$dark_color1
+                            color: abs.$light_color1
+
+
+            .aside
+                background-color: abs.$light_color1
+                float: logic.$reverse_site_direction
+                min-height: inherit
+                display: flex
+                align-items: center
+                font-size: 13px
+                cursor: pointer
+                &:hover
+                    a
+                        opacity: 1
+                        transition: logic.$transition
+                a
+                    @extend %reset_links
+                    padding: 0 10px
+                    opacity: 0.6
+                    i

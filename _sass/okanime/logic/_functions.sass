@@ -1,0 +1,16 @@
+@use "vars"
+
+@function l-or-r()
+    @if vars.$direction == rtl
+        @return right
+    @else
+        @return left
+
+@function not-l-or-r()
+    @if vars.$direction == rtl
+        @return left
+    @else
+        @return right
+
+$site_direction: l-or-r()
+$reverse_site_direction: not-l-or-r()

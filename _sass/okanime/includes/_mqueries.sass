@@ -1,0 +1,67 @@
+@media (max-width: 600px)
+    .header .top .menues .head
+        display: flex
+        flex-wrap: wrap
+    .header .top .menues .nav .list
+        flex-wrap: wrap
+    .sections 
+        .content 
+            padding: 10px 10px 0
+            .forums_section 
+                .items 
+                    .forum
+                        flex-direction: column
+                        margin: 0 10px 5px
+                        .shortinfo
+                            margin-top: 15px
+                            text-align: center
+                            .lastadedd
+                                justify-content: center
+
+@media (max-width: 769px)
+    :root
+        --side-width: 100%
+        --spacer-width: 20px
+        --content-width: 100%
+    %basic-structure
+        flex-direction: column
+        align-items: center
+
+    .spacer
+        width: 0
+        height: var(--spacer-width)
+    .header .top
+        @extend %basic-structure
+    .header .bottom
+        @extend %basic-structure
+    .sections
+        flex-direction: column-reverse
+        align-items: center
+    .footer .bottom .body
+        @extend %basic-structure
+        .tab
+            width: 100%
+            min-height: 0
+
+
+@media (min-width: 770px)
+    :root
+        --side-width: 32%
+        --spacer-width: 1.5%
+        --content-width: 68%
+
+
+@media (min-width: 992px)
+    :root
+        --side-width: 25%
+        --spacer-width: 1.5%
+        --content-width: 74%
+
+
+@media (min-width: 1200px)
+    :root
+        --side-width: 22%
+        --spacer-width: 1.5%
+        --content-width: 78%
+
+

@@ -1,0 +1,79 @@
+mixin forum_view(main_title='', description='', icon_class='', has_status=false, background_class='')
+    div(class="forum " + background_class)
+        .basic
+            .info_section
+                - if(icon_class)
+                    div(class="icon " + icon_class)
+                - else 
+                    .icon 
+                .data 
+                    .maintitle
+                        - if(main_title) 
+                            h3: a(href="#", class="forum_link")= main_title
+                        - else
+                            h3: a(href="#", class="forum_link") المواضيع العامة
+                    .forumdata
+                        - if(description)
+                            span= description
+                        - if(has_status===true)
+                            - var icons = [{'class': 'fas fa-comment', 'num': '34'}, {'class': 'fas fa-comments', 'num': '598'}]
+                            .status
+                                each icon in icons 
+                                    .nums 
+                                        i(class=icon.class)
+                                        span= icon.num
+                                
+            .share: a(href="#", class="forum_link")
+                li(class="fas fa-rss")
+        .shortinfo 
+            .lastadedd
+                span آخر مشاركة 
+                p: a(href="#", class="forum_link") هل الملل يصنع السعادة
+            .user
+                span: a(href="#", class="forum_link") barca 
+                span: a(href="#", class="forum_link") منذ 55 دقيقة
+
+
+mixin content_section(title='', header_background='', forums_num=3, start_icon_index_from=1)
+    - var klass = (header_background != '' ? "forums_section " + header_background :  'forums_section')
+    - var icon_index = start_icon_index_from
+    - var forums = forums_num
+    div(class=klass)
+        header
+            h3.section_title= title 
+            span 
+                i(class="fas fa-plus")
+                i(class="fas fa-minus")
+        section.section
+            .items
+                - for(i=1; i<=forums; i++)
+                    +forum_view('منتدى ' + icon_index, '', 'icon-' + icon_index, true, 'public')
+                    - icon_index = icon_index + 1
+
+
+mixin list_users(num=3)
+    .users-sec 
+        - for(i=1; i<=num; i++)
+            .user 
+                a.uimage(href="#uimage" + i)
+                    img(src="./images/okanime/avatars/Miss%20Naruto.jpg", alt="alt")
+                a.uname(href="#uname" + i) Miss Naruto
+                a.utitle عضو مشهور
+
+
+mixin list_subjects(num=5, keyword="posted")
+    .subjects
+        - for (i=1; i<=num; i++)
+            .subject
+                .basic 
+                    .uimage 
+                        img(src="./images/okanime/avatars/Miss%20Naruto.jpg", alt="alt")
+                    .subinfo
+                        - if (i == 1)
+                            a(href="#title" + i) برغر الرامن (مبتكر) 
+                        - else   
+                            a(href="#title" + i) برغر الرامن (مبتكر) برغر الرامن (مبتكر) برغر الرامن (مبتكر) برغر الرامن (مبتكر) 
+                        a(href="#user" + i) Miss Naruto
+                .datetime 
+                    span= keyword
+                    span اليوم في 12:26

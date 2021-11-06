@@ -1,0 +1,91 @@
+mixin panel_header(icon_class='fas fa-briefcase', title='طاقم الإدارة المتصلون')
+    header 
+        i(class=icon_class)
+        h3= title
+
+//- Current Online Admins
+.panel 
+    +panel_header('fas fa-briefcase', 'طاقم الإدارة المتصلون حاليًا')
+    section.side-content
+        - 
+            var users = [
+                {"name": "jemey", "desc": "مراقب قسم الدردشة & مشرف عام", "image": "./images/okanime/avatars/Jemey.jpg"},
+                {"name": "Pan∂ora ✿", "desc": 'رتبة "زعيم" إدارة المنتدى', "image": "./images/okanime/avatars/Pan∂ora ✿.jpg"}
+            ]
+        each user in users
+            .side_user 
+                .pfp 
+                    img(src=user.image, alt="user pic")
+                .user_info 
+                    h3= user.name 
+                    span= user.desc
+//- Current Online Users     
+.panel
+    +panel_header('fas fa-user-friends', 'الأعضاء المتصلون الآن')
+    section.side-content
+        .users_status
+            .names 
+                - for(let i=1; i<=35; i++)
+                    a(href="#username" + i) username#{i}, 
+            .status 
+                p  المجموع: 2,589 (الأعضاء: 55, الزوار: 2,520, العناكب: 14) 
+//- New Profile Posts
+.panel
+    +panel_header('far fa-caret-square-right', 'جديد مشاركات الملف الشخصي')
+    section.side-content
+        - var messages = [true, false]
+        each message in messages
+            .profile_message 
+                .pic_side 
+                    img(src="./images/okanime/avatars/jemey.jpg", alt="alt")
+                .content_side
+                    .message 
+                        p 
+                            span.user
+                                a(href="#") user
+                                - if (message)
+                                    span ⯇
+                                    a(href="#") user
+                            . 
+                                اريغاتوو كوزايمس ناروتو سان ^__^
+                            
+                    .more
+                        span منذ 2 دقيقة
+                        span ...
+//- New Subjects
+.panel
+    +panel_header('far fa-caret-square-right', 'المواضيع الجديدة')
+    section.side-content
+        +list_subjects(5)
+//- Forum Statistics
+.panel
+    +panel_header('far fa-chart-bar', 'إحصائيات المنتدى')
+    section.side-content
+        .statistics
+            - 
+                var statistics = [
+                    {"title": "المواضيع", "data": "14,387"},
+                    {"title": "المشاركات", "data": "198,115"},
+                    {"title": "الأعضاء", "data": "26,289"},
+                    {"title": "المواضيع", "data": "xyodor"}
+                ]
+            each col in statistics 
+                .in-col 
+                    span= col.title
+                    span= col.data
+//- Today's Most Active Users
+.panel
+    +panel_header('far fa-caret-square-right', 'الأعضاء الأكثر نشاطا اليوم')
+    section.side-content
+        +list_users(3)
+//- Today's Most Liked Users             
+.panel
+    +panel_header('far fa-caret-square-right', 'الأعضاء الأكثر إعجابًا هذا الأسبوع')
+    section.side-content
+        +list_users(3)
+//- Recent Activities
+.panel
+    +panel_header('far fa-caret-square-right', 'أحدث المشاركات')
+    section.side-content
+        +list_subjects(5, keyword="replied")
+

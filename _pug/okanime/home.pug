@@ -1,0 +1,17 @@
+extends index
+block title 
+    title Home
+block Body
+    .page
+        .container
+            .sections
+                aside.sidebar
+                    include includes/sidebar.pug
+                .spacer
+                .content
+                    +content_section('الأقسام الرئيسية', 'head-1', 7)
+                    +content_section('اوك انمي كلان 100%', 'head-2', 6, 8)
+                    +content_section('التقارير', 'head-3', 2, 14)
+                    +content_section('إبداعاتي', 'head-4', 5, 16)
+                    +content_section('الثقافة اليابانية', 'head-5', 3, 21)
+                    

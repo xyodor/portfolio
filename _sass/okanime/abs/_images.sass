@@ -1,0 +1,25 @@
+%heads
+    background-position: top center
+    background-size: contain
+    background-repeat: no-repeat
+
+$images_path: '../../images/okanime/'
+
+$colors: [#BFDCE2, #F4B0AF, #AFF5AF, #E3B0F3, #F2DDB0]
+
+@for $i from 1 through length($colors)
+    $c: nth($colors, $i)
+    .head-#{$i}
+        // background-image: url(../../images/okanime/heads/#{$i}.jpg)
+        header
+            background: linear-gradient(180deg, $c 7%, rgba(0,0,0,0) 100%)
+        border: 1px solid $c
+        @extend %heads
+
+@for $i from 1 through 23
+    .icon-#{$i}
+        background-image: url($images_path + 'icons/' + #{$i} + '.jpg')
+
+.chat_room_bg
+    background-image: url(../../images/okanime/heads/chat.png)
+    @extend %heads

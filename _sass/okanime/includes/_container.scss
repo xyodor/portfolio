@@ -1,0 +1,38 @@
+@use "../abs/responsive" as res;
+@use "sass:map";
+
+// .container {
+//     margin: auto;
+//     width: 100%;
+//     max-width: map.get(res.$screen_sizes, xl);
+// }
+
+.container {
+    margin: auto;
+}
+
+@mixin container($width) {
+    .container {
+        width: $width;
+    }
+}
+
+@mixin make_container() {
+// Extra Small
+    @media (max-width: res.$sm) {
+        @include container(95%)
+    }
+
+    @each $screen_size, $container_size in res.$container_sizes{
+        @media (min-width: $screen_size) {
+            @include container($container_size)
+        }
+    }
+}
+
+@include make_container()
+
+
+
+
+

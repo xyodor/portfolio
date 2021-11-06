@@ -1,0 +1,21 @@
+.breadcrumb-items
+    .bars_btn
+        button 
+            i(class="fas fa-bars") 
+    .arrow_menu
+        .breadcrumb
+            .hol
+                - for(i=0; i<2; i++)
+                    - var obj = top_header_menu[i]
+                    a(href="#", class="item")
+                        .block
+                            - if(obj.hasText === 'true')
+                                span #{obj.text}
+                            - if(obj.hasIcon === 'true')
+                                i(class=obj.icon)
+                        .arrow
+                            span
+                            span
+            .aside 
+                a(href="#")
+                    i(class="fas fa-network-wired")
